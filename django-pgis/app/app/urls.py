@@ -19,8 +19,7 @@ from django.urls import path, include
 
 from bookstore import views
 from bookstore.views import  (
-    current_time, workdir, filelist,
-    create_files, del_txt_files, show_url, calculator,
+    current_time, workdir, filelist, calculator,
     f404,smart_calc, get_requests, json_response)
 
 urlpatterns = [
@@ -28,10 +27,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('current_time', current_time, name='current_time'),
     path('workdir', workdir, name='workdir'),
-    path('filelist', filelist, name='filelist'),
-    path('show_url', show_url, name='show_url'),
-    path('del_txt_files', del_txt_files, name='del_txt_files'),
-    path('create_files', create_files, name='create_files'),
+    path('filelist', filelist, name='filelist'),   
     path('calculator/<int:val_1>/<int:val_2>', calculator, name='calculator'),
     path('smart_calc/<str:string>', smart_calc, name='smart_calc'),
     path('requests', get_requests, name='requests'),

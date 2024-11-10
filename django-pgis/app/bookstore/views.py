@@ -10,6 +10,8 @@ from os import getcwd,  listdir,  remove
 
 from django.template.response import TemplateResponse
 
+from .forms import AuthorForm
+
 # Create your views here.
 
 
@@ -42,24 +44,6 @@ def workdir(request):
 def filelist(request):
     return HttpResponse(f' {listdir()} ')
 
-def create_files(request):
-    for _ in range(10):
-        filename = ''.join(sample(ascii_lowercase, 10)) + '.txt'
-        print(filename)
-        f = open('filename', 'w')
-        f.write(f'Hello, from {filename}')
-    return HttpResponse(f' {listdir()} ')
-
-
-def del_txt_files(request):
-    for file in listdir():
-        if file.endswith('.txt'):
-            remove(file)
-    return HttpResponse(f' {listdir()} ')
-
-
-def show_url(request):
-    return HttpResponse(f' {request.get_full_path()} ')
 
 
 def calculator(request, val_1 , val_2):
@@ -93,13 +77,25 @@ def get_authors(request):
     # authors = Author.objects.all()
     # authors = authors.filter(first_name__startswith='А')
     authors = Author.objects.raw('SELECT * FROM bookstore_author')
-    print(authors)
     return HttpResponse('123')
-    # return HttpResponse(f' {authors} ')
-    # return HttpResponse(f' {authors.query} ')
 
-#
-# authors = Author.objects.all()
-# print(authors.query)
-# print(authors.filter(first_name__startswith='А'))
-# print(authors.filter(first_name__startswith='А').query)
+
+# def add_author(request):
+#     form = AuthorForm()
+#     return render(request, 'add_author.html', {'form': form})
+
+
+def add_author(request):
+    if request.method == 'POST':
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            Author.objects.create(**form.cleaned_data)
+            # last_name = form.cleaned_data['last_name']
+            # first_name = form.cleaned_data['first_name']
+            # middle_name = form.cleaned_data['middle_name']
+            # author = Author(last_name=last_name, first_name=first_name, middle_name=middle_name)
+            # author.save()
+            return redirect('get_authors')
+    else:
+        form = AuthorForm()
+    return render(request, 'add_author.html', {'form': form})
