@@ -72,7 +72,7 @@ min(s)
 sorted(s)
 ```
 
-## [1 Практика ](/module-4/1_practice.md)
+## [1 Практика ](/2_practice.md)
 
 
 ## Операторы списков
@@ -131,7 +131,7 @@ collections += [[1,2,3], (4,5,6), {7,8,9}, 10]
 
 ```
 
-## [Практика ](/module-4/1_practice.md)
+## [Практика ](2_practice.md)
 
 ## Вложенные списки
 
@@ -244,6 +244,6 @@ while True:
 ```
 
 
-## [Практика ](/module-4/1_practice.md)
+## [Практика ](2_practice.md)
 
-## [Домашка](/module-4/2_homework.md)
+## [Домашка](5_homework.md)
