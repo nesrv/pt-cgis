@@ -302,8 +302,63 @@ print (a * b) # ?
 a = int(input())
 ```
 
+# [Практика строки](3_string.md)
 
-##  [15 Практика математика](3_math.md)
+
+##  Модуль math
+
+```python
+math.ceil(5.2)
+math.ceil(-5.2)
+math.floor(5.99)
+math.floor(-3.3)
+math.trunc(5.8)
+
+math.log2(4)
+math.log10(100)
+math.log(2.7)
+math.log(27, 3) # по основанию 3
+math.sqrt(49)
+math.sin(3.14/2)
+math.cos(0)
+math.pi
+math.e
+```
+
+## Системы счисления
+
+```python
+x = 15
+
+print(bin(x))
+print(oct(x))
+print(hex(x))
+```
+
+* Кол-во бит в числе
+```python
+x = 16
+
+print(bin(x))
+print(x.bit_count())
+print(x.bit_length())
+```
+
+
+## Побитовые операции 
+
+```python
+x = 4
+y = 3
+print("Побитовое или:", x | y)
+print("Побитовое исключающее или:", x ^ y)
+print("Побитовое и:", x & y)
+print("Битовый сдвиг влево:", x << 3)
+print("Битовый сдвиг вправо:", x >> 1)
+print("Инверсия битов:", ~x)
+```
+
+##  [15 Практика математика](4_math.md)
 
 
 > P.S 
