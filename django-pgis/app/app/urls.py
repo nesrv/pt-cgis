@@ -18,7 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from bookstore import views
-from bookstore.views import  current_time, workdir, filelist, create_files, del_txt_files, show_url, calculator, f404,smart_calc, get_requests
+from bookstore.views import  (
+    current_time, workdir, filelist,
+    create_files, del_txt_files, show_url, calculator,
+    f404,smart_calc, get_requests, json_response)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,8 +35,9 @@ urlpatterns = [
     path('calculator/<int:val_1>/<int:val_2>', calculator, name='calculator'),
     path('smart_calc/<str:string>', smart_calc, name='smart_calc'),
     path('requests', get_requests, name='requests'),
+    path('json_response', json_response, name='json_response'),
+    path('bookstore/', include('bookstore.urls')),
     path('<path:info>', f404, name='f404'),
-    path('bookstore/', include('bookstore.urls'))
 
 
 ]

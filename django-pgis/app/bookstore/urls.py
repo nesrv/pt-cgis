@@ -4,8 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
+    path('authors/', views.get_authors),
     path('year/<int:year_id>/', views.get_year),
     path('<str:book_name>/', views.get_book),
-
-
 ]
