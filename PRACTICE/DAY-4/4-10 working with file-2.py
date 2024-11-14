@@ -1,9 +1,23 @@
+f = open('TXT.TXT', encoding='utf-8')
 
-f = open('TXT.TXT', 'w', encoding='utf-8')
+# for x in range(10):
+#     f.write(str(x ** 2 + 2 * x))
+#     f.write('\n')
 
-print('hello', file=f, end="_")
-print('привет', file=f, end="_")
+# print(*f)
+# # считать и получить список из чисел
 
-f.write("\nпривет привет")
+# res = f.read()
+# res = res.split()
 
-while
+print(f.readline())
+print(f.readline())
+print(f.readline())
+
+res = f.readlines()
+
+res = [int(x) for x in res]
+
+print(res)
+print(sum(res))
+

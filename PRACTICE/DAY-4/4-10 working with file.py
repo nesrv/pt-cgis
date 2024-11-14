@@ -1,17 +1,9 @@
 
-from os import walk, stat
+f = open('TXT.TXT', 'w', encoding='utf-8')
 
+print('hello', file=f, end="_")
+print('привет', file=f, end="_")
 
-# print(*walk('.'), sep='\n')
+f.write("\nпривет привет")
 
-
-# for path, dirs, files in walk('c:/'):
-#     # print(dirs, files)
-#     for file in files:
-#         if file.endswith('.exe'):
-#             print(file)
-#     # for dir in dirs:
-#     #     print(dir)
-
-
-print(stat("TXT.TXT"))
+while
