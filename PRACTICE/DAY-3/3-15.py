@@ -33,13 +33,13 @@ s = '''
 
 '''.split()
 
-print(s)
-
-s = [val.split('=') for val in s]
-
-print(s)
-res = dict(s)
-print(res)
+# print(s)
+#
+# s = [val.split('=') for val in s]
+#
+# print(s)
+# res = dict(s)
+# print(res)
 
 # Зaдача 1
 s = 'вологда=город house=дом True=1 5=отлично 9=божественно'
@@ -69,3 +69,19 @@ tlf = '''
     '+7', ['+71234567890', '+71234567854', '+71232267890']
 }
 '''
+
+tlf = tlf.split()
+dict_tlf = {}
+
+for phone in tlf:
+    dict_tlf[phone[:2]] = []
+
+
+for phone in tlf:
+    dict_tlf[phone[:2]].append(phone)
+
+
+print(dict_tlf)
+print(*dict_tlf.items(), sep='\n')
+
+
