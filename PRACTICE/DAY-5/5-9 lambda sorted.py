@@ -30,13 +30,13 @@ S = [
 S.sort(key=lambda x: (x[-1]/ x[0], x[0]))
 print(*S, sep='\n')
 
-prices = []
-for x in S:
-    prices.append([x[1] ,  x[0], x[1] /  x[0]])
-
+# prices = []
+# for x in S:
+#     prices.append([x[1] ,  x[0], x[1] /  x[0]])
+#
+# # print(*prices, sep='\n')
+#
+# prices.sort(key=lambda x:(x[2],x[1]))
+# print('-' * 30)
+#
 # print(*prices, sep='\n')
-
-prices.sort(key=lambda x:(x[2],x[1]))
-print('-' * 30)
-
-print(*prices, sep='\n')
