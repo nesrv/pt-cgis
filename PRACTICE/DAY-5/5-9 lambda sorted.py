@@ -1,35 +1,42 @@
-# map + lambda
+books = (
+    ("Евгений Онегин", "Пушкин А.С.", 200),
+    ("Муму", "Тургенев И.С.", 500),
+    ("Мастер и Маргарита", "Булгаков М.А.", 500),
+    ("Мертвые души", "Гоголь Н.В.", 190)
+)
 
-s = '10 20 5 1'
-s = s.split()
-# s = [int(x) for x in s]
+#  отсортировать по цене (последнее значение)
 
-s = list(map(int, s))
-print(s)
+# решение в чат 1-2 мин
 
-def my_func(x):
-    return x + 100
+books = sorted(books, key = lambda word: (word[-1], word[0]) )
 
-s = list(map(lambda x: x ** 2, s))
-print(s)
 
-s = list(map(my_func, s))
+# print(*books, sep='\n')
 
-print(s)
 
-s = 'Hello Python from Russia ZZZ Абракадабра'
-s = s.split()
 
-# lens_words = map(lambda word: len(word), s)
+S = [
+    [47, 470], # Вес за мешок и стоимость
+    [50, 600],
+    [60, 480],
+    [45, 540],
+    [30, 300]
+]
 
-words = list(map(lambda word: word.upper(), s))
-words = ['Тверь', 'Псков', 'Москва', 'Рязань', 'Смоленск']
+# Отсортировать мешки по стоимости за кг,
+# при равной стоимости первыми идут мешки с наименьшим весом
 
-max_word = max(words, key=len)
+S.sort(key=lambda x: (x[-1]/ x[0], x[0]))
+print(*S, sep='\n')
 
-print(max_word)
+prices = []
+for x in S:
+    prices.append([x[1] ,  x[0], x[1] /  x[0]])
 
-# sorted_words = sorted(words)
-# sorted_words = sorted(words, key=len)
-sorted_words = sorted(words, key=lambda w : (w[-1], w[-2]))
-print(sorted_words)
+# print(*prices, sep='\n')
+
+prices.sort(key=lambda x:(x[2],x[1]))
+print('-' * 30)
+
+print(*prices, sep='\n')
