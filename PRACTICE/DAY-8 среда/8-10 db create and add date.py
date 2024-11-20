@@ -16,13 +16,8 @@ VALUES ('Tom', 38)
 '''
 
 
-sql3 = '''
-SELECT * FROM people
-'''
+cursor.execute(sql)
+cursor.execute(sql2)
 
-# cursor.execute(sql)
-cursor.execute(sql3)
 
-print(cursor.fetchall())
-
-# con.commit()
+con.commit()
