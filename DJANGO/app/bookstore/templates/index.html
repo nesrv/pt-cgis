@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookstore {{ header }}</title>
+</head>
+<body>
+
+
+<h2> Наш книжный магазин {{ header.header }} </h2>
+
+
+{{ books }}
+
+{{ langs.1 }}
+{{ address.0 }}
+
+{{ person}}
+
+<ul>
+
+
+    {% for book in books %}
+
+        {% if book == "Муму" %}
+
+            <h2> Тургенев - Муму </h2>
+
+        {% else %}
+
+            <li> {{book}}</li>
+
+        {% endif %}
+
+    {% endfor %}
+
+</ul>
+
+
+{% for key, value in user.items %}
+<p>{{ key }}: {{ value }}</p>
+{% endfor %}
+</body>
+</html>
