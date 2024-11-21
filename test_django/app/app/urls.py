@@ -5,5 +5,5 @@ from bookstore import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.index),
+    path("", views.add_book_form),
 ]

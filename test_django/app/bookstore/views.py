@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Book
-from .forms import BookForm
+from .forms import BookForm, AddBookForm
 
 
 def index(request):    
@@ -22,8 +22,27 @@ def index(request):
 
 def index(request):
     books = Book.objects.all()
-    return render(request, 'index.html', {'books': books})
+    form = BookForm()
+    return render(request, 'index.html', {'books': books, 'form':form})
     
+def add_book(request):    
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():           
+            Book.objects.create(**form.cleaned_data) 
+    else:
+        form = BookForm()              
+        
+    books = Book.objects.all()    
+    return render(request, 'index.html', {'books': books, 'form': form})
 
+def add_book_form(request):
+    if request.method == 'POST':
+        form = AddBookForm(request.POST)
+        if form.is_valid():
+          form.save()
+    else:
+        form = AddBookForm()
 
-
+    books = Book.objects.all()
+    return render(request, 'index.html', {'books': books, 'form': form})
