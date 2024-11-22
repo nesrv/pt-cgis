@@ -6,39 +6,17 @@
 </head>
 <body>
 
+<h2> Наш книжный магазин </h2>
 
-<h2> Наш книжный магазин {{ header.header }} </h2>
-
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'> Добавить книгу в БД </button>
+</form>
 
 {{ books }}
 
-{{ langs.1 }}
-{{ address.0 }}
-
-{{ person}}
-
-<ul>
 
 
-    {% for book in books %}
-
-        {% if book == "Муму" %}
-
-            <h2> Тургенев - Муму </h2>
-
-        {% else %}
-
-            <li> {{book}}</li>
-
-        {% endif %}
-
-    {% endfor %}
-
-</ul>
-
-
-{% for key, value in user.items %}
-<p>{{ key }}: {{ value }}</p>
-{% endfor %}
 </body>
 </html>
